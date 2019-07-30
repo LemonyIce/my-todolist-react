@@ -1,0 +1,16 @@
+.list{
+    margin-left: 20px;
+    margin-top:20px;
+    margin-bottom: 5px;
+    width: 480px;
+    height: 30px;
+    box-sizing: border-box;
+    border-bottom: solid 1px #ccc;
+}
+.list button{
+    float: right;
+}
+.line{
+    font-style: italic;
+    text-decoration: line-through
+}

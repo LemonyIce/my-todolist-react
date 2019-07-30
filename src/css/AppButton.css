@@ -1,0 +1,15 @@
+.ui-button{
+    display: inline-block;
+    border:none;
+    text-align: center;
+    vertical-align: top;
+    height: 30px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: 20px;
+    color: #fff;
+    background-color: #1976d2;
+    border: 1px solid #03a9f4;
+    border-radius: 4px;
+
+}

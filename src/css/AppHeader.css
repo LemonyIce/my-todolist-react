@@ -1,0 +1,8 @@
+.AppHeader{
+    background: #FFF;
+}
+.AppHeader>.title{
+    border-bottom: solid #bbdefb;
+    width: 600px;
+    font-size: 40px
+}

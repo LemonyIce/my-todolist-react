@@ -9,9 +9,16 @@ class App extends Component {
     constructor(props){
       super(props)
       this.state =  {
+        choosevalue:"1",
         data:this.props.data
       }
     }
+    //choose
+    ChooseValue(id){
+      this.setState({choosevalue:id});
+    }
+
+    //localStorage
     local(newlocal){
       var localdata= window.localStorage;
       var d=JSON.stringify(newlocal);
@@ -20,13 +27,26 @@ class App extends Component {
 
     //delete list
     OnDeleteItem(id){
-      console.log(id);
     let newdata = this.state.data.filter((item)=>{
-        return item.id !=id;
+        return item.id !== id;
     });
      this.setState({data:newdata});
      console.log(newdata);
      this.local(newdata);
+  }
+
+  //ChangeComplete
+  OnChangeComplete(id){
+      let newdata = this.state.data.map(
+        (item) =>{
+          if(item.id === id){
+            item.complete = !item.complete;
+          }
+          return item;
+        }
+      )
+      this.setState({data:newdata});
+        this.local(newdata);
   }
     //add  new  list 
     OnAddTodoItem(newItem){
@@ -43,12 +63,17 @@ class App extends Component {
         <AppHeader />
         <AppForm 
           onAddTodoItem={this.OnAddTodoItem.bind(this)}
+         
         />
         <AppList 
           data={data}
+          choosevalue={this.state.choosevalue}
           OnDeleteItem={this.OnDeleteItem.bind(this)}
+          OnChangeComplete={this.OnChangeComplete.bind(this)}
         />
-        <AppFooter />
+        <AppFooter 
+          ChooseValue={this.ChooseValue.bind(this)}
+        />
       </div>
     );
   }

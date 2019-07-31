@@ -5,24 +5,28 @@ import '../css/AppButton.css'
 
 class AppTod extends React.Component{
 
-    handleChaneComplete(){
-        let newComlete = this.props;
-        // this.props.ChangeCompleteItem(this.props.id);
+    //change  (id)=>APPList=>App
+    OnChaneComplete(id){
+        console.log(this.props);
+        this.props.OnChangeComplete(this.props.id);
+
     }
 
-    
+
     //delete  (id)=>APPList=>App
     OnDeleteItem(id){
         console.log(this.props.id);
         this.props.OnDeleteItem(this.props.id);
     }
+    
     render(){
         return(
             <div className="list"
-                onClick={this.handleChaneComplete.bind(this)}
+                
             >
             <span
                 className={this.props.complete ?'author line':'author'}
+                onClick={this.OnChaneComplete.bind(this)}
                 
                 id={this.props.id}
             >{this.props.text}</span>

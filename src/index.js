@@ -7,7 +7,7 @@ var data;
 var storage = window.localStorage;
  let localdata =storage.getItem("data");
 localdata = JSON.parse(localdata);//localdata
- console.log(localdata);
+//  console.log(localdata);
 
 
 let defdata = [
@@ -23,7 +23,7 @@ if(localdata){
   data = defdata
 }
 
- console.log(data);
+//  console.log(data);
 ReactDOM.render(
   <App data={data}/>,
   document.getElementById('root')

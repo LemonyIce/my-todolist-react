@@ -2,17 +2,20 @@ import React from 'react'
 import '../css/AppForm.css'
 import '../css/AppButton.css'
 import '../css/AppButton.css'
+import uuid from 'uuid'
 
 class AppFrom extends React.Component{
     handleSubmit(event){
         event.preventDefault();
         let text = this.refs.text.value;
+        let id = uuid();
         if(!text.trim()){
             alert("Input can`t be null")
             return
         }else{
             console.log(text);
-            this.props.onAddTodoItem({"text":text,"complete":false});
+            this.props.onAddTodoItem({"text":text,"complete":false,"id":id});
+            this.refs.text.value="";//clean input
         }
     }
     
@@ -25,6 +28,7 @@ class AppFrom extends React.Component{
                             type="text" 
                             placeholder="I need to ..." 
                             ref="text" autoFocus={true}
+                            autoComplete="off"
                         />
                         <button 
                             type="submit" 
